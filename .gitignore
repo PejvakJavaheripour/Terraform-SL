@@ -1,9 +1,14 @@
 # Local .terraform directories
 **/.terraform/*
 
-# .tfstate files
+# .tfstate files (Compliled Filed)
 *.tfstate
 *.tfstate.*
+
+# Module Directory
+.terraform/
+
+.DS_Store
 
 # Crash log files
 crash.log
