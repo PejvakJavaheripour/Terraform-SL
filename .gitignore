@@ -9,6 +9,7 @@
 .terraform/
 
 .DS_Store
+.vscode/
 
 # Crash log files
 crash.log
