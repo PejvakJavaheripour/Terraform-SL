@@ -1,3 +1,5 @@
+#Note: For using the code please remove /* */
+
 /*
 
 variable aws_ip_cidr_range {

@@ -1,3 +1,5 @@
+#Note: For using the code please remove /* */
+
 /*
 
 resource "aws_vpc" "Prod_VPC" {

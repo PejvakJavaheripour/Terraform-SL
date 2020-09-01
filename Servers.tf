@@ -1,3 +1,4 @@
+#Note: For using the code please remove /* */
 /*
 
 data "aws_ami" "ubuntu" {
