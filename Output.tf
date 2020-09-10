@@ -1,12 +1,18 @@
+
 #Note: For using the code please remove /* */
 /*
 
+locals {
+  bucket_myprefix = "pejvakjavaheripour"
+  bucket_mypolicy = "pejvakbucketpolicy"
+}
+
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "pejvakjavaheripour-bucket"
+  bucket = "${local.bucket_myprefix}-bucket"
 }
 
 resource "aws_iam_policy" "my_bucket_policy" {
-  name = "my-bucket-policy"
+  name = "${local.bucket_mypolicy}"
 
   policy = <<POLICY
 {
@@ -24,6 +30,10 @@ resource "aws_iam_policy" "my_bucket_policy" {
   ]
 }
 POLICY
+}
+
+output "My_Bucket_ARN" {
+  value = "${aws_s3_bucket.my_bucket.arn}"
 }
 
 */

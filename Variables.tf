@@ -1,22 +1,30 @@
 #Note: For using the code please remove /* */
 
+#first apply : terraform apply --var env_type=dev --var queue_name=myqueue
+#second apply: env TF_VAR_env_type=test env TF_VAR_queue_name=updatedqueue terraform apply
+#third apply : terraform apply (please apply with "Variables.auto.tfvars" file)
+
 /*
 
-variable aws_ip_cidr_range {
-  default = "10.0.1.0/24"
-  type = "string"
-  descrytion = "IP CIDR Range for AWS in VPC."
+variable "tag_map" {
+  type = "map"
+  default = {
+    dev	  = "dev-queue",
+    test  = "test-queue",
+    prod  = "prod-queue"
+  }
 }
 
-## variable subnet_names {
-  type = "map"
+variable "env_type" {}
 
-  default = {
-    subnet1 = "subnetone"
-    subnet2 = "subnettwo"
-    subnet3 = "subnetthree"
+variable "queue_name" {}
+
+resource "aws_sqs_queue" "queue" {
+  name = "${var.queue_name}"
+
+  tags {
+    environment_type = "${lookup(var.tag_map, var.env_type)}"
   }
 }
 
 */
-

@@ -1,8 +1,8 @@
 #Note: For using the code please remove /* */
 /*
 
-resource "aws_s3_bucket" "my_bucket" {
-  bucket = "pejvakjavaheripour-bucket"
+data "aws_s3_bucket" "my_bucket" {
+  bucket = "pejvakjavaheripour-already-bucket"
 }
 
 resource "aws_iam_policy" "my_bucket_policy" {
@@ -18,7 +18,7 @@ resource "aws_iam_policy" "my_bucket_policy" {
       ],
       "Effect": "Allow",
       "Resource": [
-        "${aws_s3_bucket.my_bucket.arn}"
+        "${data.aws_s3_bucket.my_bucket.arn}"
       ]
     }
   ]
@@ -26,4 +26,4 @@ resource "aws_iam_policy" "my_bucket_policy" {
 POLICY
 }
 
-*/
+ */
